@@ -24,8 +24,8 @@ Puppet::Type.type(:package).provide(:brewcask, :parent => Puppet::Provider::Pack
       raise Puppet::ExecutionFailure, 'Homebrew does not support installations owned by the "root" user. Please check the permissions of /usr/local/bin/brew'
     end
 
-    super(cmd, :uid => owner, :gid => group, :combine => combine,
-          :custom_environment => { 'HOME' => home }, :failonfail => failonfail)
+    Dir.chdir('/'){super(cmd, :uid => owner, :gid => group, :combine => combine,
+                         :custom_environment => { 'HOME' => home }, :failonfail => failonfail)}
   end
 
   def self.instances(justme = false)

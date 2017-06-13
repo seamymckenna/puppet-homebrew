@@ -1,8 +1,7 @@
 class homebrew::install {
 
   $brew_folders = [
-                    '/usr/local',
-                    '/usr/local/bin',
+                    '/usr/local/Caskroom',
                     '/usr/local/Cellar',
                     '/usr/local/etc',
                     '/usr/local/Frameworks',
